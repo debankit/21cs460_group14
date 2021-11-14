@@ -1,0 +1,414 @@
+    <html>
+        <head>
+            <title>Drug Discovery Using Machine Learning</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                body {
+                  background-color: #8ff0d3c2;
+                }
+                
+                #myBtn {
+                    display: none;
+                    position: fixed;
+                    bottom: 20px;
+                    right: 30px;
+                    z-index: 99;
+                    font-size: 18px;
+                    border: none;
+                    outline: none;
+                    background-color: #E1532F;
+                    color: black;
+                    cursor: pointer;
+                    padding: 12px;
+                    border-radius: 4px;
+                    }
+
+                #myBtn:hover {
+                background-color: #555;
+                }
+            </style>
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async
+                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+            </script>
+        </head>
+    
+        <body>
+            <div class="container">
+            
+                <ul>
+                <header >
+                    <h1>Drug Discovery Using Machine Learning</h1>
+                    <h2>CS460 - Group 14</h2>
+                    <h2>Project By: </h2>
+                    <ul>
+                        <li><b>Saswat K Pati</b></li>
+                        <li><b>Debankit Priyadarshi</b></li>
+                    </ul>
+                </header>
+            <!-- </div> -->
+            <!-- <h4></h4> -->
+    
+                <p>
+                    Project done to be submitted in the course of Machine Learning CS460<br>
+                    Supervised by Subhankar Mishra <br>
+                    <a href="https://github.com/debankit/ML-Drug-Discovery" target="_blank">Github Repository</a>
+                </p>
+                <hr />
+              
+                <p>
+                    Jump To:- <br>
+                    <a href="#Idea_and_Motivation">Proposal</a> &emsp;
+                    <a href="#Midway_Work">Midway</a> &emsp;
+                    <a href="#Final Work">Endway</a> &emsp;
+                </p>
+                <hr />
+
+                <ul>
+                <h3 style="color: rgba(255, 0, 0, 0.774);"> Idea and Motivation 
+                    <a id="Idea_and_Motivation">Proposal</a></h3>
+                
+            
+                <ul>
+                    <li> Discovering a new drug from scratch for a specific disease is a costly and time taking process.</li>
+                    <li>There are major disadvantages of the existing Drug Discovery methods, for example, even after years research, only one out of 1000 hits get approved as often the active compound maybe too toxic, not bioavailable, or too costly to manufacture.</a></li>
+                    <li>So we are instead applying a reverse approach. Repurposing.</li>
+                    <li> Drug Repurposing involves the investigation of existing drugs for new therapeutic purposes.</a></li>
+                    <li> The base of our model lies in the efficient prediction of drug-target interactions (DTIs).</a></li>
+                    <li> Much learning has already been done in this field. However, many interactions have not yet been detected, and the accuracy of the existing models is also not very high. </li>
+                    <img src="html1.png" width="800" height="150" alt="Work Flow">
+
+                </ul>
+                
+                <ul>
+                    <li>The structures of the drug and the binding targets found in proteins are converted into a code that the computer can understand and use.</li>
+                    <li>We will primarily be converting into SMILES(simplified molecular-input line-entry system) a line notation to describe the chemical structures using short ASCII strings.</li>
+                    <li>We plan to train them and use the ML model to find the exact drug’s functional group-binding pocket of the protein interaction.</li>
+                    <li>We plan to order the drugs using an efficiency score. For this, the exact parameters affecting the interaction will be considered.</li>
+                </ul>
+
+
+                <hr />
+                <h3 style="color: rgba(255, 0, 0, 0.774);"> Data Sets To Be Used</h3>
+                <ul>
+                    <li> The datasets we will be using are taken from DrugBank, SuperTarget, MATADOR, etc.</li>
+                    <li>Our primary source is DrugBank but we are not fully sure about the academic license approval, therefore we have mentioned a few of the sources.</li>
+                    <li>We will be using the approved drugs dataset to train our Model and for testing. We’ll also be checking using experimental drug data for drug uses.</li>
+                </ul>
+                <hr>
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Relevant Papers</h3>
+                <ul>
+                    <li>El-Behery, H., Attia, A. F. (2021). Efficient machine learning model for predicting drug-target interactions with case study for Covid-19. Computational Biology and Chemistry, 93, 107536. <a href="https://doi.org/10.1016/j.compbiolchem.2021.107536">DOI</a> 
+                    </li> 
+                    <li>Vuignier, K., Schappler, J., Veuthey (2010). Drug–protein binding: a critical review of analytical tools. Analytical and Bioanalytical Chemistry, 398(1), 53–66. <a href="https://doi.org/10.1007/s00216-010-3737-1">DOI</a></li>
+                    <li>Mohapatra, S., Nath, P., Chatterjee, M. & Satapathi, S. (2020). Repurposing therapeutics for COVID-19: Rapid prediction of commercially available drugs through machine learning and docking. PLOS ONE, 15(11), e0241543. <a href="https://doi.org/10.1371/journal.pone.0241543">DOI</a> 
+                    </li>
+                    <li>Young, D. C. (2009). Computational Drug Design. Wiley. <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470451854.fmatter">DOI</a> 
+                    </li>
+
+                </ul>
+                <hr>
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Baselines and Expectation</h3>
+                <ul>
+                    <li>For the ML model we plan to first start with the normal clustering algorithms and also Support Vector Machine(SVM). We will then try to use a decision tree based Random Forest(RF) Method. </li>
+                    <li>We also look forward to use the deep learning Artificial Neural Networks(ANN).
+                </ul>
+                <hr />
+                <h3 style="color: rgba(255, 0, 0, 0.774);"> Midway and Work Division </h3>
+                <ul>
+                    <li> Midway targets
+                        <ul>
+                            <li>Collection and Preparation of the Dataset from DrugBank and correlating these data via PubChem (Saswat)</li>
+                            <li>Apply Clustering, Naive Bayes and SVM and try to improve on our Efficiency score while avoiding overfitting which is common in these databases. (Debankit)
+                            </li>
+                            <li>Applying domain knowledge (the possible interactions and bonding) to enhance efficiency (Saswat)</li>
+                        </ul>
+                    </li>
+                    <li>Mid-way Presentation (Debankit)</li>
+                    <li>Final Presentation (both)</li>
+                    <li>Website Maintenance (both)</li>
+                </ul>
+                <hr />
+                <h3 style="color: rgba(255, 0, 0, 0.774);"> Expected Results and Further Insights</h3>
+                <ul>
+                    <li>We expect that our model can predict the test data results with high accuracy so as to be better than the existing algorithms.</li>
+                    <li>The extended use of the model can be that whenever a new small heterocyclic molecule is synthesised by some researcher, he/she can use our algorithm to predict the molecule’s likelihood to be a drug.</li>
+                    <li>Conversely by using this model researchers can save time and resources while producing a new drug as they can test their design’s applicability before even synthesizing it. (Basically, Gaussian for medicinal chemists)</li>
+                </ul>
+                <hr>
+                <u><b><h2>Presentation:</h2></b></u>
+
+                <p align ="center"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRqK9vlq3PV1DdR224jiYSvVbCKXnu3PbV4d1PwPdBz5a4LAFyO2lTio99hqPeyeRRi12XJslOv7J8t/embed?start=true&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>
+
+                <h2><u>Midway Work</u>  <a id="Midway_Work"></a></h2>
+                <hr>
+                <h3 style="color: rgba(255, 0, 0, 0.774);">What is Drug Repurposing?</h3>
+                <ul>
+                    <li>Drug repurposing (also called drug repositioning, reprofiling or re-tasking) is a strategy for identifying new uses for approved or investigational drugs that are outside the scope of the original medical indication.</li>
+                    <li>The whole idea is based on the idea that similar molecules are usually associated with similar protein targets. Thus, these approaches predict interactions based on similarities between connections protein.</li>
+                    <li>This method was overtly popular in 2020 when researchers were rushing to find out drugs for CoVID-19. Designing a completely new drug and getting it approved through several rounds of clinical trials and approval agencies is time taking and not worth it as it has been seen that less than 10% of interesting candidates make it to market.</li>
+                    <li>For proteins, conversion regulates amino acids in 7 groups according to their physical chemical properties. In case of Smiles strings, an encoding technique was used to convert each character as an integer to be used as a feature of the drug.</li>
+                </ul>
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Paper Reviews:</h3>
+                <ol>
+                    <li>El-Behery, H., Attia, A. F. (2021). Efficient machine learning model for predicting drug-target interactions with case study for Covid-19. Computational Biology and Chemistry, 93, 107536. <a href="https://doi.org/10.1016/j.compbiolchem.2021.107536">DOI</a></li>
+                    <ul>
+                        <li>In this paper, the group aimed to train a model based on Drug Target Interactions (DTI’s) to identify the available drugs that can influence the Covid-19 viral proteins.</li>
+                        <li>The database used are structured data of Potential Proteins and Drugs from DrugBank and feature data on enzymes and ion channels from SuperTarget and Matador.</li>
+                        <li>The data is preprocessed to convert the sequence data into a set of description features.</li>
+                        <li>For proteins, conversion regulates amino acids in 7 groups according to their physical chemical properties. In case of Smiles strings, an encoding technique was used to convert each character as an integer to be used as a feature of the drug.</li>
+                        <li>This data is then applied on ML techniques like SVM, RF, XGBoost, LightBoost, ExtraTree, ANN, DBN and CNN to predict interaction between drugs and their target proteins.</li>
+                        <li>Experimental comparison among these learning techniques on the extracted data reveal that results obtained by ensemble techniques like LightBoost and ExtraTree were 98 % and F1-Score 0.97 which is better than the current methods usually used.</li>
+                        <li>This model can predict more undetected interactions and thus can be used as an efficient tool in drug repositioning. The model is applied on the proteins known to be affected by Covid-19 to predict possible interactions between these proteins the existing drugs announced in DrugBank which shows Umifeovir as an prospective choice.</li>
+                        <li>Evaluation Parameters :- The different measurements to predict the target reaction of drugs to evaluate and compare different techniques are:</li>
+                        <ul>
+                            <li> Accuracy: The accuracy of the test is its ability to distinguish negative from positive conditions correctly. To estimate the accuracy of the test, we should calculate the true positive negative ratio in all cases evaluated. If TP is true positive, TN is true negative, FP is false positive and FN is false negative, the accuracy can be stated as: Accuracy <span class="math inline">\(=\frac{T P+T N}{(T P+T N+F P+F N)}\)</span></li>
+                            <li>Precision and Recall: The precision visualizes the ratio of positive reactions that are correct. The reminder shows the ratio of positive reactions that have been correctly identified. It can be calculated as: <span class="math display">\[\text { Precision }=\frac{T P}{(T P+F P)} \quad \text { Recall }=\frac{T P}{(T P+F N)}\]</span></li>    
+                            <li>F1-score: F1-Score evaluates the balance between precision (p) &amp; recall (r) in the system, and estimated as: <span class="math inline">\(F 1\)</span> Score <span class="math inline">\(=\frac{\left.2^{*} \text { (Recall }^{\star} \text { Precision }\right)}{(\text { Recall }+\text { Precision })}\)</span></li>
+                            <li>Area under curve: The Receiver Operating Characteristic (ROC) curve shows the forecaster’s performance at different threshold values. Real positive rate values are drawn against incorrect positive rate values for curve formation. For comparison the curves, the area under the curve (AUC) is calculated. It represents a compilation of values at different points on the curve. The value of the area under the AUC curve ranges from 0 to 1.</li>
+                            <li> Mathew’s Correlation coefficient (mcc): Its value ranges from <span class="math inline">\(-1\)</span> to 1, where <span class="math inline">\(-1\)</span> is a false binary learning method and 1 is a completely valid binary learning method. Mathew’s correlation coefficient can be calculated as: <span class="math display">\[m c c=\frac{T P^{*} T N-F P^{*} F N}{\sqrt{(T P+F N)^{*}(T N+F P)^{*}(T P+F P)^{*}(T N+F N)}}\]</span></li>
+                            <li>Mean Squared Error (MSE) MSE measures the average of squares of the errors - the average of the quadratic difference between actual value and estimated values. MSE measure of estimated quality - always non-negative, and values closer to zero are better. MSE estimated with the following equation: <span class="math display">\[M S E=\frac{1}{n} \sum^{n}\left(\mathrm{Y}_{\mathrm{i}}-\widehat{Y}_{i}\right)^{2}\]</span></li>
+                            <li>Finally, the time it took for various training forecasts, as well as for prediction purposes, is also a metric assessment and comparison of different techniques. </li>
+                        </ul>
+                        <img src = "el_behery_table.png" width = "600" height = "400" alt="paper results">
+                    </ul>
+                    <li>Vuignier, K., Schappler, J., Veuthey (2010). Drug–protein binding: a critical review of analytical tools. Analytical and Bioanalytical Chemistry, 398(1), 53–66. <a href="https://doi.org/10.1007/s00216-010-3737-1">DOI</a></li>
+                    <ul>
+                        <li>This is a review of all important approaches used by scientists to characterize drug–protein binding. Vuignier et al. applied fundamental chemical kinetics theorems to explain drug-protein interactions.</li>
+                        <li>Vuignier et al. focused on drug–plasma-protein binding, specifically two major proteins, human serum albumin (HSA) and α1-acid glycoprotein (AGP) that are capable of binding with drugs and compared prevalent separative and non-separative methods.</li>
+                        <li>Separative and non-separative methods used for investigation of drug–protein binding. ED(equilibrium dialysis); UF (ultrafiltration); UC(ultracentrifugation); PAMPA(parallel artificial membrane permeability assay); LC(liquid chromatography); CE(capillary electrophoresis); SPR(surface plasmon resonance-based assays)</li>
+                        <img src="paper3.png" width="600" height="400" alt="Interactons">
+                    </ul>
+                    <li>Mohapatra, S., Nath, P., Chatterjee, M. & Satapathi, S. (2020). Repurposing therapeutics for COVID-19: Rapid prediction of commercially available drugs through machine learning and docking. PLOS ONE, 15(11), e0241543. <a href="https://doi.org/10.1371/journal.pone.0241543">DOI</a></li>
+                    <ul>
+                        <li>This group from IITR looked for FDA approved drugs that can be repurposed for the treatment of COVID-19.</li>
+                        <li>It is known that SARS-CoV-2 spikes bind to receptors on the human cell surface called angiotensin-converting enzyme 2 (ACE2). So, SCRIPPS institute compiled a dataset of PubChem Bioassay (marked AID 1706, hosted on NCBI) containing around 290893 small drug molecules that interacted with SARS 3C-like Protease via various mechanisms that they didn’t delve into.</li>
+                        <li>Out of these small drug molecules, the ones that inhibited SARS Coronavirus action were labelled as Active and those that didn’t were labelled as inactive.</li>
+                        <li>This dataset was divided randomly into two sets: 80% of it was used for training using the Naive Bayesian classification Algorithm. Other algorithms like Random Forest, SMO, etc were applied but got overfit on the provided dataset.</li>
+                        <li>The rest 20% was used for Testing. With an accuracy of 73% they tested their model against 2388 FDA approved drugs (Database derived from DrugBank) and shortlisted 10 drugs that had a confidence level of more than 90%.</li>
+                        <img src="paper2a.png" width="600" height="250" alt="Results">                        
+                        <li>All 10 of these were docked against potential protein molecule and Amprenavir (DrugBank ID–DB00701), having favourable minimum global energy of around -59.90 Kcal/mol and suitable bond lengths despite of the steric interactions at Ser121(B) and Pro122(B), was concluded as the ideal candidate.</li>
+                        <img src="paper2b.png" width="600" height="250" alt="Cross Checking using Docking">
+                    </ul>         
+                </ol>
+                
+                <u><b><h2>Presentation:</h2></b></u>
+
+                <p align ="center"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTrWNQ8-bpzoXXnnEstFfAZm8Ie3RtizLNKoAFldon8jVnjqmEc2eZOg2gZZkondumO4NQoRjGSwemH/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>
+
+
+
+                <hr>
+                <h2><u>Final Work</u>  <a id="Final Work"></a> </h2>
+                <hr>
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Recap</h3>
+                <ul>
+                    <li>As discussed earlier, our main motivation was based on the assumption proposed by El-Behery et al. that “Similar molecules are usually associated with similar protein targets” in their 2021 paper on Drug Repurposing using Machine Learning. But, What do you mean by similar molecules?</li>
+                    <li>Similar molecules must have similar number of basic structural building blocks like the functional groups that contributes to its selectivity and reactivity.</li>
+                    <li>Thereforth our idea, i.e. to build a machine learning model which finds similarities in protein binding properties between molecules using the number of different functional groups for our purpose. Seems easy!!! We were so wrong!!!</li>
+                    <li>We did extensive literature review to check if this idea was being employed already. This idea was new, thus we faced many roadblocks in gathering and pre-processing our dataset.</li>
+                </ul>
+
+                <h3 style="color: rgba(255, 0, 0, 0.774);">First step: Data Gathering and Pre pre-processing</h3>
+                <ul>
+                    <li>We needed a dataset that contains the number of functional groups in different molecules along with the information that they are active or inactive in inhibiting a particular protein or protein substance that is in turn responsible for some disease.</li>
+                    <li>That seemed so easy, until we did not find any. Our primary source Drug Bank, was huge and inaccessible. And finally when we gained academic license to access the database it was mostly composed pharmacological data that we had no use of rather than cheminformatics data and 3D structures that we actually needed.</li>
+                    <li>Serendipitously, we came across a lab group database from SCRIPPS and Broad Institute public databases on E. Coli(causes cholecystitis, urinary tract infection (UTI), diarrhea and Pneumonia) and HIV respectively.</li>
+                </ul>
+                 
+
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Some Success</h3>
+                <ul>
+                    <li>We found a tool developed by an UC Irvine group that directly converted a 3D molecule represented in its SMILE representation into the number of different functional groups it contains.</li> 
+                    <li>We never got it to integrate in our code, so we had to do it manually. We found two datasets containing the SMILE’s of a number of molecules and their activity in inhibiting the E.Coli bacteria and HIV virus.</li>
+                    <li>So we converted all the SMILE molecules into their corresponding number of functional groups in batches as the tool couldn’t handle large number of molecules at once.</li>
+                    <img src="a1.png" width="900" height="60" alt="SMILES"><br><br>
+                    <img src="a2.png" width="900" height="60" alt="Functional Group Numbers"> <br>
+
+                </ul>
+
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Second step: Baseline Implementation</h3>
+                <ul>
+                    <li>We have taken the prepared datasets as input and converted into two lists containing the features and labels.</li>
+                    <li>We have split the dataset into 30 percent testing data and 70 percent training data.</li>
+                    <li>We have implemented Decision tree classifier, Naive Bayes classifier, Random Forest classifier, SVM and SGD models.</li>
+                    <li>On E-coli inhibitor data:</li>
+                        <table border="2">
+                        <tr>
+                          <th>Models</th> 
+                          <th>Accuracy</th> 
+                          <th>F1 Score(weighted)</th>
+                        </tr>
+                        <tr>
+                          <td>Decision Tree</td>
+                          <td>0.873</td>
+                          <td>0.868</td>
+                        </tr>
+                        <tr>  
+                          <td>Naive Bayes</td>
+                          <td>0.866</td>
+                          <td>0.804</td>
+                        </tr>
+                        <tr>  
+                          <td>Random Forest</td>
+                          <td>0.896</td>
+                          <td>0.880</td>
+                        </tr>
+                        <tr>  
+                          <td>SVM</td>
+                          <td>0.880</td>
+                          <td>0.834</td>
+                        </tr>
+                        <tr> 
+                          <td>SGD</td>
+                          <td>0.843</td>
+                          <td>0.842</td>
+                        </tr>
+                    </table>
+
+                    <li> On HIV inhibitor data:</li>
+                      <table border="2">
+                      <tr>
+                        <th>Models</th> 
+                        <th>Accuracy</th> 
+                        <th>F1 Score(weighted)</th>
+                      </tr>
+                      <tr>
+                        <td>Decision Tree</td>
+                        <td>0.890</td>
+                        <td>0.885</td>
+                      </tr>
+                      <tr>  
+                        <td>Naive Bayes</td>
+                        <td>0.860</td>
+                        <td>0.801</td>
+                      </tr>
+                      <tr>  
+                        <td>Random Forest</td>
+                        <td>0.920</td>
+                        <td>0.908</td>
+                      </tr>
+                      <tr>  
+                        <td>SVM</td>
+                        <td>0.896</td>
+                        <td>0.866</td>
+                      </tr>
+                      <tr> 
+                        <td>SGD</td>
+                        <td>0.843</td>
+                        <td>0.849</td>
+                      </tr>
+                    </table>
+                <li>We have tried to mix the data of both the E-Coli and HIV so that we can classify the different molecules to check if they are helpful in these two diseases. Our model holds and thus our plan has been quite successful as of yet.
+                </li>
+                <table border="2">
+                    <tr>
+                      <th>Models</th> 
+                      <th>Accuracy</th> 
+                      <th>F1 Score(weighted)</th>
+                    </tr>
+                    <tr>
+                      <td>Decision Tree</td>
+                      <td>0.876</td>
+                      <td>0.871</td>
+                    </tr>
+                    <tr>  
+                      <td>Naive Bayes</td>
+                      <td>0.893</td>
+                      <td>0.842</td>
+                    </tr>
+                    <tr>  
+                      <td>Random Forest</td>
+                      <td>0.924</td>
+                      <td>0.915</td>
+                    </tr>
+                    <tr>  
+                      <td>SVM</td>
+                      <td>0.908</td>
+                      <td>0.877</td>
+                    </tr>
+                    <tr> 
+                      <td>SGD</td>
+                      <td>0.874</td>
+                      <td>0.868</td>
+                    </tr>
+                  </table>
+                </ul>
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Deep Learning Model For the HIV Dataset</h3>
+                <ul>
+                    <li>We have split the dataset containing around 3000 rows into 20 percent test data and 80 percent training data.</li>
+                    <li>We have used the Standard Scaler so as to not confuse the neural network regarding the weights of the features.</li>
+                    <li>We have used the tensorflow library to train our model. There are 4 Dense layers with 3 Relu Activation function and 1 last Sigmoid activation function.</li>
+                    <li>We have taken two different learning rate cases. In case of 0.03 learning rate, we found that after around 60 epochs, the model is overfitting. (Training Accuracy = 0.82 in 50 epochs)</li>
+                    <li>In 0.01 learning rate, we get a good result after 100 epochs. (Training Accuracy = 0.93 in 100 epochs)</li>
+                    <li>With Learning Rate of 0.03</li>
+                    <img src="lr0.03.png" width="800" height="400" alt="0.03"><br><br>
+                    <li>With Learning Rate of 0.01</li>
+                    <img src="lr0.01.png" width="800" height="400" alt="0.01"> <br>
+                    <li>The confusion matrix for the first case with learning rate of 0.03:</li>
+                    <img src="confusion_lr0.03.png" width="100" height="40" alt="0.03">
+                    <li>The confusion matrix for the first case with learning rate of 0.01:</li>
+                    <img src="confusion_lr0.01.png" width="100" height="40" alt="0.01">
+                    <li>As is observable, the diagonal elements representing True Positives and True Negatives are better for the 0.01 learning rate case. This is the test data result we got with the learning rate of 0.01.</li>
+                    Accuracy : 0.73 <br>
+                    Precision : 0.77 <br>
+                    Recall : 0.69
+                    </ul>
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Limitations and Conclusions</h3>
+                <ul>
+                <li>Although these results might seem very promising and give the conception that now given any new small molecule our model can predict whether it can be used as a drug for some disease, that is misleading.</li>
+                <li>Drug designing is a very complicated process(what we learned in the hard way) and this model, if extended to all major diseases, given their databases are publicly available(which isn’t, all due credit to big pharma), will definitely help drug designers to make better predictions.</li>
+                <li>A small molecule being active for a particular disease causing protein doesn’t imply it can be used as a drug. ‘Active’ is a broad term as interpreted by Mohapatra et al. includes even those which just interact with the protein(not necessarily block the foreign disease causing element get attached).</li>
+                <li>Other factors like Docking efficiency, Orientation of the molecule, tautomerism or conjugation if present also comes into play. But, there are softwares like AdMET and Vina AutoDOCK to do that. Our model acts as an enabling technology and helps make researchers make better predictions by narrowing down their search significantly.</li>
+                </ul>        
+                <h3 style="color: rgba(255, 0, 0, 0.774);">Ideas to Improve</h3>
+                <ul>
+                <li>We believe, the output we get from our model can again be used in the model created in our reference papers, thereby increasing the accuracy of getting a viable new drug.</li>
+                <li>If we can increase the number of datapoints, then we can get a better trained model.</li>              
+                </ul>
+                <u><b><h2>Presentation:</h2></b></u>
+                <p align ="center"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2ek3__cjjaXP0Ddu9ub4WpUEL1YRYvkhQBRZ_-oefSGkyVC8NmyNrXwiTjdvuw21BemnR34fWCU7M/embed?start=false&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>
+
+            Thank You!!! <br>
+            With Love from Saswat and Debankit.<br>
+            </div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+            <script>
+                //Get the button
+                var mybutton = document.getElementById("myBtn");
+                
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function() {scrollFunction()};
+                
+                function scrollFunction() {
+                  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                  } else {
+                    mybutton.style.display = "none";
+                  }
+                }
+                
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                  document.body.scrollTop = 0;
+                  document.documentElement.scrollTop = 0;
+                }
+                </script>
+
+                <a href="https://github.com/debankit/21cs460_group14/tree/main/codes" class="t-button" target="_blank">Codes</a>
+                <style>
+                .t-button {
+                    display: flex;
+                    background: #E1532F;
+                    color: black;
+                    padding: 0.5em 1em;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                    position: fixed;
+                    top: 1%;
+                    right: 0;
+                }
+                </style>
+        </body>
+    
+    </html>
